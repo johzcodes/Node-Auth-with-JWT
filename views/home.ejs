@@ -1,0 +1,20 @@
+<h1>Welcome</h1>
+
+<ul>
+    <% if (user) { %>
+    <li><%= user.email %></li>
+    <li><a href="/logout">Log Out</a></li>
+    <% } else { %>
+    <li><a href="/login">Login</a></li>
+    <li><a href="/smothies">Smothies</a></li>
+    <% } %>
+</ul>
+
+<script>
+    window.onpopstate = (req, res) =>{
+        res.redirect('/login');
+    }
+    history.pushState = (res) =>{
+        res.redirect('/login');
+    }
+</script>
